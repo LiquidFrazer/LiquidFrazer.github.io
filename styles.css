@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+    background: linear-gradient(to bottom, #2a1d49, #1b0a30);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Main Title */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px white;
+    animation: glow 2s infinite alternate;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 20px #ff99cc; }
+}
+
+/* Subtext */
+#lines {
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+button {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to bottom, #4058aa, #2c3a77);
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+/* Moon */
+.moon {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+    width: 170px;
+    height: 170px;
+    background: radial-gradient(circle, white 50%, #f4c542 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px white;
+}
+
+/* Clouds */
+.cloud {
+    position: absolute;
+    filter: drop-shadow(0 0 15px white);
+    opacity: 0.9;
+}
+
+.cloud1 { top: 8%; left: 55%; width: 180px; }
+.cloud2 { top: 12%; left: 30%; width: 200px; }
+.cloud3 { top: 15%; right: 10%; width: 220px; }
+
+/* Stars */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Crying Emoji Rain */
+.emoji-rain {
+    position: absolute;
+    font-size: 2rem;
+    top: -50px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    from { transform: translateY(0); }
+    to { transform: translateY(100vh); }
+}
+
+/* Hypnotizing Hearts */
+.hypnotizing-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: heartFade 3s linear forwards;
+}
+
+@keyframes heartFade {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(2); }
+}

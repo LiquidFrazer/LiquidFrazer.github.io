@@ -3,62 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>I Love You Olivia</title>
-    <link rel="stylesheet" href="style.css">
+    <title>I Love You Olivia 💖</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="stars-container"></div> <!-- Stars will be generated here -->
     <div class="container">
-        <h1>Will you be my Valentine, Olivia? 💖</h1>
+        <h1 id="main-text">Will you be my Valentine, Olivia? 💕</h1>
+        <p id="lines"></p>
         <div class="buttons">
-            <button id="yes-btn">Yes 💕</button>
-            <button id="no-btn">No 😢</button>
+            <button id="yes-btn">Yes 💖</button>
+            <button id="no-btn">No 💔</button>
         </div>
     </div>
 
-    <!-- Create a div for the sad GIF background -->
-    <div id="sad-background"></div>
+    <!-- Night Sky Elements -->
+    <div class="moon"></div>
+    <img src="cloud.png" class="cloud cloud1" alt="Cloud">
+    <img src="cloud.png" class="cloud cloud2" alt="Cloud">
+    <img src="cloud.png" class="cloud cloud3" alt="Cloud">
 
-    <script>
-        // Getting button references and other elements
-        let yesButton = document.getElementById('yes-btn');
-        let noButton = document.getElementById('no-btn');
-        let sadBackground = document.getElementById('sad-background');
-        let counter = 0;
-        let heartInterval;
-
-        // Add event listeners to the buttons
-        yesButton.addEventListener('click', function() {
-            counter = 0;  // Reset on "Yes"
-            sadBackground.style.display = 'none'; // Hide sad background
-            startHypnoticHearts(); // Start hypnotic hearts effect
-        });
-
-        noButton.addEventListener('click', function() {
-            counter++;
-            if (counter >= 5) {
-                sadBackground.style.display = 'block'; // Show sad background after 5 presses
-            }
-        });
-
-        // Function to start hypnotic hearts effect
-        function startHypnoticHearts() {
-            heartInterval = setInterval(function() {
-                let heart = document.createElement('span');
-                heart.textContent = '💖';
-                heart.classList.add('bouncing-heart');
-                document.body.appendChild(heart);
-
-                let randomX = Math.random() * 100;
-                let randomY = Math.random() * 100;
-
-                heart.style.left = `${randomX}%`;
-                heart.style.animationDuration = `${Math.random() * 3 + 3}s`; // Random speed
-            }, 100); // Generate hearts every 100ms
-        }
-
-        // Start the hypnotic hearts effect as soon as the page loads
-        startHypnoticHearts();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
