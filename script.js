@@ -1,36 +1,39 @@
+// Getting button references and other elements
 let yesButton = document.getElementById('yes-btn');
 let noButton = document.getElementById('no-btn');
-let sadBackground = document.createElement('div');
+let sadBackground = document.getElementById('sad-background');
 let counter = 0;
+let heartInterval;
 
-// Create the sad background GIF container
-sadBackground.classList.add('sad-background');
-document.body.appendChild(sadBackground);
+// Add event listeners to the buttons
+yesButton.addEventListener('click', function() {
+    counter = 0;  // Reset on "Yes"
+    sadBackground.style.display = 'none'; // Hide sad background
+    startHypnoticHearts(); // Start hypnotic hearts effect
+});
 
-let heartInterval = setInterval(function () {
-    let heart = document.createElement('span');
-    heart.textContent = '💖';
-    heart.classList.add('bouncing-heart');
-    document.body.appendChild(heart);
-
-    let randomX = Math.random() * 100;
-    let randomY = Math.random() * 100;
-
-    heart.style.left = `${randomX}%`;
-    heart.style.animationDuration = `${Math.random() * 3 + 3}s`; // randomize speed
-}, 200); // Generates hearts at regular intervals
-
-// Change to sad background and stop heart generation after 5 "No" presses
 noButton.addEventListener('click', function() {
     counter++;
     if (counter >= 5) {
-        sadBackground.style.opacity = 1;
-        clearInterval(heartInterval); // Stop the hypnotic hearts after 5 presses
+        sadBackground.style.display = 'block'; // Show sad background after 5 presses
     }
 });
 
-// Adjust hypnotic hearts for continuous display
-yesButton.addEventListener('click', function() {
-    counter = 0; // Reset on "Yes" press
-    sadBackground.style.opacity = 0; // Hide sad background
-});
+// Function to start hypnotic hearts effect
+function startHypnoticHearts() {
+    heartInterval = setInterval(function() {
+        let heart = document.createElement('span');
+        heart.textContent = '💖';
+        heart.classList.add('bouncing-heart');
+        document.body.appendChild(heart);
+
+        let randomX = Math.random() * 100;
+        let randomY = Math.random() * 100;
+
+        heart.style.left = `${randomX}%`;
+        heart.style.animationDuration = `${Math.random() * 3 + 3}s`; // Random speed
+    }, 100); // Generate hearts every 100ms
+}
+
+// Start the hypnotic hearts effect as soon as the page loads
+startHypnoticHearts();

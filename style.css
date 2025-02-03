@@ -1,144 +1,97 @@
-/* 🌸 Neumorphic Background */
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+}
+
+body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f5e6f7;
+    background-color: #ffe4e1; /* Pastel Pink background */
     overflow: hidden;
+    flex-direction: column;
     position: relative;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="50%" x="50%" text-anchor="middle" dy=".3em">💖</text></svg>') 16 16, auto;
 }
 
-/* 🎨 Centered Content */
 .container {
     text-align: center;
-    background: #f7eff9;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px #d4c1d7, -10px -10px 20px #ffffff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
-/* 🌈 Animated Rainbow Gradient Title with Aesthetic Text */
 h1 {
-    font-size: 3rem;
-    text-align: center;
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #a1c4fd);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbowText 4s linear infinite, textShadowAnimation 3s ease-in-out infinite;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 105, 180, 0.6);
+    font-size: 3em;
+    color: #ff1493; /* Pink color for text */
+    margin-bottom: 20px;
+    animation: rainbow-text 3s infinite linear;
 }
 
-/* Text shadow animation */
-@keyframes textShadowAnimation {
-    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 105, 180, 0.6); }
-    50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 105, 180, 0.9); }
-    100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 105, 180, 0.6); }
+@keyframes rainbow-text {
+    0% { color: #ff1493; }
+    20% { color: #ff6347; }
+    40% { color: #ffcc00; }
+    60% { color: #32cd32; }
+    80% { color: #1e90ff; }
+    100% { color: #ff1493; }
 }
 
-@keyframes rainbowText {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* 🩷 Neumorphic Buttons with Hover Effects */
 .buttons {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 button {
-    font-size: 1.5rem;
-    padding: 15px 35px;
+    padding: 15px 30px;
+    font-size: 1.5em;
     border: none;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
-    margin: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 6px 6px 12px #d4c1d7, -6px -6px 12px #ffffff;
-    font-family: 'Pacifico', cursive;
+    background-color: #ffb6c1;
+    transition: transform 0.2s, background-color 0.3s ease-in-out;
 }
 
-/* Yes Button */
-#yes-btn {
-    background: linear-gradient(45deg, #ff99cc, #ff66b2);
-    color: white;
-    transition: transform 0.3s ease;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-#yes-btn:hover {
+button:hover {
     transform: scale(1.1);
-    box-shadow: 2px 2px 6px #ff99cc, -2px -2px 6px #ffffff;
-    letter-spacing: 3px;
+    background-color: #ff69b4;
 }
 
-/* No Button */
-#no-btn {
-    background: linear-gradient(45deg, #a18cd1, #fbc2eb);
-    color: white;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-#no-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 2px 2px 6px #a18cd1, -2px -2px 6px #ffffff;
-    letter-spacing: 3px;
-}
-
-/* 🎉 Bouncing Hearts (Hypnotic Effect) */
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20vh); }
-    100% { transform: translateY(100vh); }
+button:active {
+    transform: scale(1.2);
 }
 
 .bouncing-heart {
     position: absolute;
-    bottom: 0;
-    font-size: 5rem;
-    color: #ff4081;
-    animation: bounce linear infinite;
-    z-index: -1;
+    font-size: 50px;
+    animation: bounce 3s infinite;
 }
 
-/* 🖤 Sad GIF when "No" is pressed */
-.sad-background {
+@keyframes bounce {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(50px, -50px);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+#sad-background {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://media.tenor.com/P3RqQUUK9BAAAAAM/rip-juice-cry.gif') no-repeat center center;
+    right: 0;
+    bottom: 0;
+    background: url('https://media.tenor.com/P3RqQUUK9BAAAAAM/rip-juice-cry.gif') center center no-repeat;
     background-size: cover;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* 🌸 Heart Emoji Falling Background */
-@keyframes heart-rain {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
-}
-
-.falling-heart {
-    position: absolute;
-    font-size: 3rem; /* Increased size of falling hearts */
-    color: #ff4081;
-    animation: heart-rain 4s linear infinite;
-    opacity: 0.8;
+    display: none; /* Initially hidden */
     z-index: 0;
+    opacity: 0.5;
 }
